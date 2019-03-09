@@ -27,13 +27,15 @@
         var wins = 0;
         var lose = 0;
         var left = 10;
-        var guesses = "";
+       
 
         var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
         console.log(computerChoice);
 
+
         document.onkeypress = function (event) {
             var userGuess = event.key;
+            
 
             if (computerChoice === userGuess) {
                 wins++;
@@ -43,6 +45,7 @@
             else {
                 left--;
             }
+
             if (left === 0) {
                 lose++;
             }
@@ -51,6 +54,7 @@
             document.getElementById('winText').innerHTML = "Wins: " + wins;
             document.getElementById('loseText').innerHTML = "losses: " + lose;
             document.getElementById('leftText').innerHTML = "Guesses left: " + left;
+            document.getElementById('guessesText').innerHTML = "Guesses made: " + userGuess;
         }
 
 
