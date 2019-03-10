@@ -16,7 +16,7 @@
         <p id="winText"></p>
         <p id="loseText"></p>
         <p id="leftText"></p>
-        <p id="guessesText"></p>
+        <p id="guessesText"> </p>
     </div>
 
     <script>
@@ -27,6 +27,7 @@
         var wins = 0;
         var lose = 0;
         var left = 10;
+        
 
 
         var resetGuesses = function () {
@@ -41,6 +42,7 @@
 
             var userGuess = event.key;
             var yourGuess = userGuess;
+
             if (computerChoice === userGuess) {
                 wins++;
                 resetGuesses();
@@ -56,18 +58,14 @@
             }
 
 
-         
-          
-
-
-
             document.getElementById('winText').innerHTML = "Wins: " + wins;
             document.getElementById('loseText').innerHTML = "losses: " + lose;
             document.getElementById('leftText').innerHTML = "Guesses left: " + left;
-            document.getElementById('guessesText').innerHTML = "Guesses made: " + userGuess;
-           
-
             
+            var yourGuess = " " + yourGuess;
+            document.querySelector("#guessesText").innerHTML += yourGuess;
+
+
         }
 
 
