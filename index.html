@@ -27,34 +27,47 @@
         var wins = 0;
         var lose = 0;
         var left = 10;
-       
 
-        var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-        console.log(computerChoice);
 
+        var resetGuesses = function () {
+            left = 10;
+            document.querySelector("#guessesText").innerHTML = '';
+        }
 
         document.onkeypress = function (event) {
-            var userGuess = event.key;
-            
 
+            var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+            console.log(computerChoice);
+
+            var userGuess = event.key;
+            var yourGuess = userGuess;
             if (computerChoice === userGuess) {
                 wins++;
-
+                resetGuesses();
             }
-
+            else if (left == 0) {
+                lose++;
+                resetGuesses();
+            }
+            else if (userGuess.length < 0) {
+            }
             else {
                 left--;
             }
 
-            if (left === 0) {
-                lose++;
-            }
+
+         
+          
+
 
 
             document.getElementById('winText').innerHTML = "Wins: " + wins;
             document.getElementById('loseText').innerHTML = "losses: " + lose;
             document.getElementById('leftText').innerHTML = "Guesses left: " + left;
             document.getElementById('guessesText').innerHTML = "Guesses made: " + userGuess;
+           
+
+            
         }
 
 
